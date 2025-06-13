@@ -1,0 +1,384 @@
+body{
+    font-family: 'Plus Jakarta Sans' , 'sans-serif' !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #F4F7FA !important; /* Light gray for a sleek, fresh look */
+    color: #333333; /* Dark gray for text */
+}
+
+.container{
+    flex: 1;
+}
+
+/* Navbar */
+.navbar {
+    height: 5rem;
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.fa-compass{
+    color: #2D9CDB;
+    font-size: 2rem;
+}
+
+.nav-link{
+    color: #2F3A4A !important;
+}
+
+.nav-link:hover {
+    color: #1A84C0 !important; /* Hover effect in dark blue */
+}
+
+/* Footer */
+
+footer {
+    background-color: #243854;
+    color: #F5F7FA;
+    border-top: 3px solid #2D9CDB;
+    padding: 3rem 1rem 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.f-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.f-about, .f-info-socials, .f-info-links {
+    flex: 1 1 300px;
+    min-width: 250px;
+}
+
+.f-about h5,
+.f-info-socials h5,
+.f-info-links h5 {
+    color: #2D9CDB;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.f-about p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #DDE6ED;
+}
+
+.social-icons span {
+    margin-right: 1.2rem;
+    font-size: 1.8rem;
+    color: #2D9CDB;
+    transition: color 0.3s ease;
+    cursor: default;
+}
+
+.social-icons span:hover {
+    color: #27AE60;
+}
+
+.f-info-links span {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    color: #AABACD;
+    font-weight: 500;
+    cursor: default;
+    transition: color 0.3s ease;
+}
+
+.f-info-links span:hover {
+    color: #27AE60;
+    text-decoration: underline;
+}
+
+.f-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #2D9CDB;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+.f-bottom p {
+    margin: 0;
+    color: #AABACD;
+}
+
+.back-to-top {
+    display: block;
+    margin-top: 0.8rem;
+    color: #2D9CDB;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.back-to-top:hover {
+    color: #27AE60;
+}
+
+
+
+/* .f-info-links, .f-info-socials , .f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.f-info-socials i{
+    margin-right: 1.2rem;
+    font-size: 2rem;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: #2D9CDB;
+    font-weight: bold;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+    color: #27AE60;
+}
+
+.f-info{
+    text-align: center;
+    height: 8rem;
+    background-color: #E0E8ED;
+    color: #1B2A41;
+    border-top: 1.5px solid #2D9CDB;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+} */
+
+/* Cards */
+.listing-link{
+    text-decoration: none;
+}
+
+.listing-card {
+    border: none !important;
+    border-radius: 24px 24px 0 0; /* Curvy top corners */
+    margin-bottom: 1.8rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    background-color: #ffffff;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
+}
+
+.listing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Adjust padding and font size to be more compact */
+.card-body {
+    padding: 1.25rem 1.2rem !important;
+    color: #2C3E50;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+    color: #2C3E50;
+}
+
+.card-img-top {
+    border-radius: 24px 24px 0 0 !important; /* Curvy top corners */
+    height: 220px;
+    width: 100% !important;
+    object-fit: cover !important;
+    transition: filter 0.3s ease;
+    display: bl;
+}
+
+.card-img-top:hover {
+    filter: brightness(95%);
+}
+
+.card-text-p {
+    font-weight: 500 !important;
+}
+
+/* Card Effect */
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+
+.add-btn{
+    background-color: #2D9CDB !important;
+    border: none  !important;
+}
+
+/* Edit page */
+.edit-btn{
+    background-color: #2D9CDB !important;
+    border: none !important;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.edit-btn:hover {
+    background-color: #1a84c0 !important;
+}
+
+/* Show page */
+
+.show-img {
+    height: 350px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 18px 18px 0 0;
+}
+
+
+.btns .btn {
+    margin-right: 1rem;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.btns .btn:hover {
+    background-color: #1b6fa8 !important;
+}
+
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 24px 24px 0 0; /* Curvy top corners */
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Keep consistent styling for delete button */
+.btn-dark {
+    background-color: #2C3E50;
+    border: none;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-dark:hover {
+    background-color: #1b2a41;
+}
+
+/* MAP */
+
+#map{
+    height: 400px;
+    width: 80vh;
+    border-radius: 10px;
+}
+
+.card.col-5 {
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.card.col-5:hover {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.card.col-5 .card-title {
+    font-size: 1rem;
+    color: #2D9CDB;
+    font-weight: 600;
+}
+
+.card.col-5 .card-text {
+    font-size: 0.95rem;
+    color: #444;
+}
+
+
+.original-img {
+    max-width: 250px;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+}
+
+
+/* Optional: Add subtle section background if needed */
+.section-bg {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+/* Responsive Adjustments (optional but useful) */
+@media (max-width: 768px) {
+    .listing-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .card-body {
+        padding: 1.25rem;
+    }
+}
+
+/* Review Card */
+.review-card {
+    border-radius: 24px 24px 0 0; /* Curvy top corners */
+    background-color: #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+    padding: 1rem;
+    max-width: 95%; /* Slightly narrower */
+    margin: auto;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+
+.staysphere-brand {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-icon {
+  font-size: 1.8rem;     /* Slightly larger icon */
+  color: #2D9CDB;        /* Brand blue */
+}
+
+.brand-text {
+  color: #2D9CDB;        /* Match icon color */
+  font-weight: 600;
+}
+

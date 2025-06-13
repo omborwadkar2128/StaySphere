@@ -1,0 +1,38 @@
+<footer>
+    <div class="f-container">
+        <div class="f-about">
+            <h5>🌍 About StaySphere</h5>
+            <p>Discover unique places to stay across the globe. Whether you're looking for a cozy cabin or a luxury penthouse, StaySphere helps you feel at home, anywhere.</p>
+        </div>
+        <div class="f-info-socials">
+            <h5>🔗 Connect with Us</h5>
+            <div class="social-icons">
+                <span><i class="fa-brands fa-instagram"></i></span>
+                <span><i class="fa-brands fa-square-facebook"></i></span>
+                <span><i class="fa-brands fa-linkedin"></i></span>
+            </div>
+        </div>
+        <div class="f-info-links">
+            <h5>📄 Legal</h5>
+            <span>Privacy Policy</span>
+            <span>Terms of Service</span>
+        </div>
+    </div>
+    <div class="f-bottom">
+        <p>&copy; <%= new Date().getFullYear() %> StaySphere Private Limited — Made with ❤️ for travel lovers</p>
+        <span class="back-to-top">↑ Back to top</span>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const backToTopBtn = document.querySelector('.back-to-top');
+
+        backToTopBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
