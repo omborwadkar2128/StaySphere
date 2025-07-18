@@ -13,12 +13,12 @@
     box-sizing: inherit;
   }
 
-  /* Fullscreen hero */
+  /* Hero Section - UPDATED ONLY */
   .hero-section {
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
     width: 100vw;
+    left: 0;
+    margin-left: calc(-50vw + 50%);
     height: 100vh;
     background: url('/assets/bg.jpg') center center / cover no-repeat;
     display: flex;
@@ -27,66 +27,106 @@
     flex-direction: column;
     text-align: center;
     overflow: hidden;
-    margin: 0;
   }
+
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+  }
+
   .hero-section::after {
     content: "";
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 25vh;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, white 100%);
-    z-index: 1;
-  }
-  .hero-content {
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, white 100%);
     z-index: 2;
-    margin-top: 6rem;
-    padding: 1rem;
   }
 
-  /* Updated heading: white text, no background */
+  .hero-content {
+    z-index: 3;
+    padding: 1rem 2rem;
+    animation: fadeInUp 1s ease-out both;
+  }
+
   .hero-content h1 {
-    color: white;
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    background: transparent !important;
-    padding: 0;
-    line-height: 1.2;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    color: #fff;
+    font-size: 3.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.5);
   }
 
-  /* Search bar */
-  .search-bar {
+  .hero-content p.lead {
+    color: #f2f2f2;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    margin-top: 0.5rem;
+  }
+
+  .hero-content a.cta-button {
+    margin-top: 1.5rem;
+    display: inline-block;
+    background-color: #ffffffcc;
+    color: #333;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .hero-content a.cta-button:hover {
+    background-color: #fff;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #filters {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    background: rgba(255,255,255,0.9);
-    padding: 1rem 2rem;
-    border-radius: 1.5rem;
-  }
-  .search-bar input,
-  .search-bar button {
-    padding: 0.5rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-  }
-  .search-bar button {
-    background-color: #1c87c9;
-    color: white;
-    border: none;
+    align-items: center;
+    margin: 2rem 1rem;
   }
 
-  /* Filters */
-  #filters { display: flex; flex-wrap: wrap; align-items: center; margin: 2rem 1rem; }
-  .filter { text-align: center; margin-right: 2rem; margin-top: 1rem; opacity: 0.7; }
-  .filter:hover { opacity: 1; cursor: pointer; }
-  .filter p { font-size: 0.8rem; }
+  .filter {
+    text-align: center;
+    margin-right: 2rem;
+    margin-top: 1rem;
+    opacity: 0.7;
+  }
 
-  /* Listings */
-  .listing-wrapper { margin-bottom: 1.25rem; }
+  .filter:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .filter p {
+    font-size: 0.8rem;
+  }
+
+  .listing-wrapper {
+    margin-bottom: 1.25rem;
+  }
+
   .listing-card {
     border: none;
     border-radius: 1rem;
@@ -95,53 +135,58 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     background-color: white;
   }
+
   .listing-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 18px rgba(0,0,0,0.2);
   }
+
   .listing-img {
     height: 18rem;
     object-fit: cover;
     width: 100%;
     display: block;
   }
+
   .listing-info,
   .listing-price {
     margin-left: 0.25rem;
     padding-left: 0.5rem;
   }
+
   .listing-info {
     margin-top: 0.15rem;
     font-size: 1rem;
     font-weight: 600;
     text-align: left;
   }
+
   .listing-price {
     font-size: 0.9rem;
     color: #555;
     font-weight: 400;
     text-align: left;
   }
+
   .tax-info {
     font-size: 0.75rem;
     color: #777;
   }
 
-/* End of results section */
-.end-of-results {
-  margin: 4rem auto 6rem auto;
-  text-align: center;
-  font-weight: 600;
-  font-size: 1.2rem;
-  color: #444;
-}
-.end-of-results img {
-  display: block;
-  margin: 0 auto 0 auto;
-  width: 150px;
-  height: auto;
-}
+  .end-of-results {
+    margin: 4rem auto 6rem auto;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #444;
+  }
 
+  .end-of-results img {
+    display: block;
+    margin: 0 auto 0 auto;
+    width: 150px;
+    height: auto;
+  }
 </style>
 
 <body>
@@ -149,13 +194,9 @@
   <!-- Hero Section -->
   <div class="hero-section">
     <div class="hero-content">
-      <h1>Your Home Away From Home</h1>
-      <div class="search-bar">
-        <input type="text" placeholder="Add destination" />
-        <input type="text" placeholder="Add dates" />
-        <input type="text" placeholder="Add guests" />
-        <button>Search</button>
-      </div>
+      <h1>Where comfort meets adventure</h1>
+      <p class="lead">Book your next stay, your way.</p>
+      <a href="#filters" class="cta-button">Explore Now</a>
     </div>
   </div>
 
