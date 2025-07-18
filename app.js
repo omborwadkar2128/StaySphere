@@ -206,7 +206,7 @@ app.use((req, res, next) => {
 
 // Home page (transparent nav)
 app.get("/", (req, res) => {
-    res.render("index", { isIndex: true });
+    res.render("/listings");
 });
 
 // ✅ Login page — pass hideFooter to disable footer
