@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate") %>
 
 <script>
-  const mapToken = "<%= process.env.Map_Token %>";
+  const mapToken = "<%= mapboxToken %>";
   const listing = <%- JSON.stringify(listing) %>;
 </script>
 
@@ -13,7 +13,7 @@
     --text-color: #333333;
     --light-gray: #ddd;
     --border-radius: 8px;
-    --max-width: 1080px; /* Increased from 900px to 1080px */
+    --max-width: 1080px;
   }
 
   body {
