@@ -1,132 +1,202 @@
 <%- layout("layouts/boilerplate") %>
 
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: white;
+  }
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+
+  /* Fullscreen hero */
+  .hero-section {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100vh;
+    background: url('/assets/bg.jpg') center center / cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+    margin: 0;
+  }
+  .hero-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 25vh;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, white 100%);
+    z-index: 1;
+  }
+  .hero-content {
+    z-index: 2;
+    margin-top: 6rem;
+    padding: 1rem;
+  }
+
+  /* Updated heading: white text, no background */
+  .hero-content h1 {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    background: transparent !important;
+    padding: 0;
+    line-height: 1.2;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  }
+
+  /* Search bar */
+  .search-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    background: rgba(255,255,255,0.9);
+    padding: 1rem 2rem;
+    border-radius: 1.5rem;
+  }
+  .search-bar input,
+  .search-bar button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+  .search-bar button {
+    background-color: #1c87c9;
+    color: white;
+    border: none;
+  }
+
+  /* Filters */
+  #filters { display: flex; flex-wrap: wrap; align-items: center; margin: 2rem 1rem; }
+  .filter { text-align: center; margin-right: 2rem; margin-top: 1rem; opacity: 0.7; }
+  .filter:hover { opacity: 1; cursor: pointer; }
+  .filter p { font-size: 0.8rem; }
+
+  /* Listings */
+  .listing-wrapper { margin-bottom: 1.25rem; }
+  .listing-card {
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background-color: white;
+  }
+  .listing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  }
+  .listing-img {
+    height: 18rem;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+  }
+  .listing-info,
+  .listing-price {
+    margin-left: 0.25rem;
+    padding-left: 0.5rem;
+  }
+  .listing-info {
+    margin-top: 0.15rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+  }
+  .listing-price {
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 400;
+    text-align: left;
+  }
+  .tax-info {
+    font-size: 0.75rem;
+    color: #777;
+  }
+
+/* End of results section */
+.end-of-results {
+  margin: 4rem auto 6rem auto;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #444;
+}
+.end-of-results img {
+  display: block;
+  margin: 0 auto 0 auto;
+  width: 150px;
+  height: auto;
+}
+
+</style>
+
 <body>
-    <!-- <h3>All Listings</h3> -->
-    <!-- <form method="GET" action="/listings/new">
-        <button>Create New Listing</button>
-    </form> -->
 
-    <style>
-        #filters{
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .filter{
-            text-align: center;
-            margin-right: 2rem;
-            margin-top: 2rem;
-            opacity: 0.7;
-        }
-
-        .filter:hover{
-            opacity: 1;
-            cursor: pointer;
-        }
-
-        .filter p{
-            font-size: 0.8rem;
-        }
-
-        .tax-info{
-            display: none;
-        }
-
-        .tax-toggle{
-            border: 1px solid black;
-            border-radius: 1rem;
-            height: 3.25rem;
-            padding: 1rem;
-            margin-left: 2rem;
-            display: flex;
-            align-items: center;
-        }
-    </style>
-
-    <div id="filters">
-        <div class="filter">
-            <div><i class="fa-solid fa-fire"></i></div>
-            <p>Trending</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-bed"></i></div>
-            <p>Rooms</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-mountain-city"></i></div>
-            <p>Iconic Cities</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-mountain"></i></div>
-            <p>Mountains</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-brands fa-fort-awesome"></i></div>
-            <p>Castels</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-person-swimming"></i></div>
-            <p>Amazing Pools</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-campground"></i></div>
-            <p>Camping</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-brands fa-fort-awesome"></i></div>
-            <p>Farms</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-snowflake"></i></div>
-            <p>Arctic</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-igloo"></i></div>
-            <p>Domes</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-ship"></i></div>
-            <p>Boats</p>
-        </div>
-
-        <div class="tax-toggle">
-            <div class="form-check-reverse form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
-              </div>
-        </div>
-
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Your Home Away From Home</h1>
+      <div class="search-bar">
+        <input type="text" placeholder="Add destination" />
+        <input type="text" placeholder="Add dates" />
+        <input type="text" placeholder="Add guests" />
+        <button>Search</button>
+      </div>
     </div>
+  </div>
 
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
-        <% for(let listing of allListings){ %>
-            <a href="/listings/<%= listing._id %>" class="listing-link">
-            <div class="card col listing-card" >
-            <img src="<%= listing.image.url %>" class="card-img-top" alt="listing-image" style="height: 20rem;">
-            <div class="card-body">
-                <p class="card-text">
-                    <%= listing.title %> <br>
-                   &#8377; <%= typeof listing.price === 'number' ? listing.price.toLocaleString("en-IN") : listing.price %>
-                   <i class="tax-info">&nbsp; &nbsp; +18% GST</i>
-                </p>
+  <!-- Filters -->
+  <div id="filters">
+    <div class="filter"><div><i class="fa-solid fa-fire"></i></div><p>Trending</p></div>
+    <div class="filter"><div><i class="fa-solid fa-bed"></i></div><p>Rooms</p></div>
+    <div class="filter"><div><i class="fa-solid fa-mountain-city"></i></div><p>Iconic Cities</p></div>
+    <div class="filter"><div><i class="fa-solid fa-mountain"></i></div><p>Mountains</p></div>
+    <div class="filter"><div><i class="fa-brands fa-fort-awesome"></i></div><p>Castles</p></div>
+    <div class="filter"><div><i class="fa-solid fa-person-swimming"></i></div><p>Amazing Pools</p></div>
+    <div class="filter"><div><i class="fa-solid fa-campground"></i></div><p>Camping</p></div>
+    <div class="filter"><div><i class="fa-brands fa-fort-awesome"></i></div><p>Farms</p></div>
+    <div class="filter"><div><i class="fa-solid fa-snowflake"></i></div><p>Arctic</p></div>
+    <div class="filter"><div><i class="fa-solid fa-igloo"></i></div><p>Domes</p></div>
+    <div class="filter"><div><i class="fa-solid fa-ship"></i></div><p>Boats</p></div>
+  </div>
+
+  <!-- Listings -->
+  <div class="container-fluid">
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1">
+      <% for(let listing of allListings){ %>
+        <div class="col listing-wrapper">
+          <a href="/listings/<%= listing._id %>" class="listing-link">
+            <div class="listing-card">
+              <img src="<%= listing.image.url %>" class="listing-img" alt="listing image">
             </div>
-            </div>
-            </a>
-        <%}%>
+          </a>
+          <div class="listing-info"><%= listing.title %></div>
+          <div class="listing-price">
+            &#8377; <%= typeof listing.price === 'number' ? listing.price.toLocaleString("en-IN") : listing.price %> / night
+          </div>
+        </div>
+      <% } %>
     </div>
+  </div>
 
-<script>
-    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
-    taxSwitch.addEventListener("click" , () => {
-        let taxInfo = document.getElementsByClassName("tax-info");
-        console.log(taxInfo);
-        for(info of taxInfo){
-            if(info.style.display != "inline"){
-                info.style.display = "inline";
-            }else{
-                info.style.display = "none";
-            }
-        }
-    });
-</script>
+  <!-- End of Results -->
+  <div class="end-of-results">
+    <img src="/assets/endd.png" alt="End of results icon">
+    end of results!!
+  </div>
+
+</body>

@@ -1,25 +1,118 @@
 <%- layout("/layouts/boilerplate") %>
 
-<div class="row mt-3">
-    <h1 class="col-6 offset-3">Signup on StaySphere</h1>
-    <div class="col-6 offset-3">
-        <form action="/signup" method="POST" class="needs-validation" novalidate>
-            <div class="mb-3">
-                <label for="username" class="form-label">username</label>
-                <input name="username" id="username" type="text" class="form-control" required>
-                <div class="valid-feedback">Looks good!</div>
-            </div>
+<style>
+  body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    background:
+      conic-gradient(from 90deg at 50% 50%, #6a11cb, #2575fc, #6a11cb, #2575fc);
+    overflow-x: hidden;
+  }
 
-            <div class="mb-3">
-                <label for="email" class="form-label">email</label>
-                <input name="email" id="email" type="email" class="form-control" required>
-            </div>
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.15), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1), transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
 
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input name="password" id="password" type="password" class="form-control" required>
-            </div>
-            <button class="btn btn-success">SignUp</button>
-        </form>
+  .login-container {
+    position: relative;
+    margin: 5% auto 5% auto;
+    max-width: 450px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    z-index: 1;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .login-container:hover {
+    transform: scale(1.02);
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: #f3f3f3;
+    letter-spacing: 1.5px;
+  }
+
+  label {
+    color: #ddd;
+    font-weight: 600;
+  }
+
+  .form-control {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #eee;
+    border-radius: 8px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+  }
+
+  .form-control::placeholder {
+    color: #ccc;
+  }
+
+  .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    outline: none;
+    box-shadow: 0 0 8px 2px rgba(101, 84, 255, 0.6);
+  }
+
+  .btn-success {
+    width: 100%;
+    padding: 12px;
+    font-weight: 700;
+    background-color: #ff6f61; /* coral */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-success:hover {
+    background-color: #e85c50;
+  }
+
+  .valid-feedback {
+    color: #b6f3b6;
+  }
+</style>
+
+<div class="login-container">
+  <h1>Signup on StaySphere</h1>
+  <form action="/signup" method="POST" class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input name="username" id="username" type="text" class="form-control" required placeholder="Enter username">
+      <div class="valid-feedback">Looks good!</div>
     </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input name="email" id="email" type="email" class="form-control" required placeholder="Enter email">
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input name="password" id="password" type="password" class="form-control" required placeholder="Enter password">
+    </div>
+
+    <button type="submit" class="btn btn-success">SignUp</button>
+  </form>
 </div>

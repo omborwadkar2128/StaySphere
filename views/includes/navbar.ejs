@@ -1,41 +1,65 @@
 <style>
-.search-btn {
-  background-color: #2D9CDB;
-  color: #fff;
-  border-radius: 25px;
-  padding: 0.5rem 1.5rem;
-  display: flex;
-  align-items: center;
-  border: none;
-  font-weight: 500;
-  gap: 0.5rem;
-  white-space: nowrap;
-}
+  .search-btn {
+    background-color: #2D9CDB;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    border: none;
+    font-weight: 500;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
 
-.search-btn:hover {
-  background-color: #1c87c9;
-  color: #fff;
-}
+  .search-btn:hover {
+    background-color: #1c87c9;
+    color: #fff;
+  }
 
-.btn-search i {
-  font-size: 1rem;
-}
+  .btn-search i {
+    font-size: 1rem;
+  }
 
-.search-inp {
-  border-radius: 25px;
-  padding: 0.5rem 1.5rem;
-  font-size: 1rem;
-}
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
 
+  /* ✅ Make navbar transparent and positioned on top of hero */
+  .transparent-navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .staysphere-brand {
+    color: white !important;
+    font-weight: bold;
+  }
+
+  .navbar-nav .nav-link {
+    color: black !important;
+    font-weight: 500;
+  }
+
+  .navbar-nav .nav-link:hover {
+    text-decoration: underline;
+  }
 </style>
 
-<nav class="navbar navbar-expand-lg bg-body-light border-bottom sticky-top">
+<nav class="navbar navbar-expand-lg <%= isIndex ? 'transparent-navbar' : '' %>">
   <div class="container-fluid">
-<a class="navbar-brand staysphere-brand" href="/listings">
-  <i class="fa-regular fa-solid fa-campground brand-icon me-2"></i> 
-  <span class="brand-text">StaySphere</span>
-</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+    <a class="navbar-brand staysphere-brand" href="/listings">
+      <i class="fa-solid fa-campground brand-icon me-2"></i> 
+      <span class="brand-text">StaySphere</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -43,20 +67,19 @@
         <a class="nav-link" href="/listings">Explore</a>
       </div>
       <div class="navbar-nav ms-auto">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations">
-            <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-          </form>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" aria-label="Search destinations">
+          <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+        </form>
       </div>
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="/listings/new">StaySphere your home</a>
-        <% if(!currUser){%>
+        <% if (typeof currUser === "undefined" || !currUser) { %>
           <a class="nav-link" href="/signup"><b>SignUp</b></a>
           <a class="nav-link" href="/login"><b>Login</b></a>
-        <%}%>
-        <% if(currUser){%>
+        <% } else { %>
           <a class="nav-link" href="/logout">Log out</a>
-        <%}%>
+        <% } %>
       </div>
     </div>
   </div>
