@@ -1,4 +1,133 @@
 const sampleListings = [
+    {
+    title: "Oceanfront Bamboo Villa",
+    description:
+      "A serene bamboo villa overlooking crystal-blue waters. Perfect for a peaceful tropical escape.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2100,
+    location: "Koh Samui",
+    country: "Thailand",
+  },
+
+  {
+    title: "Cliffside Ocean Villa",
+    description:
+      "Luxury villa built on a cliff with breathtaking panoramic views of the ocean.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1501117716987-c8e1ecb210b7?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 3200,
+    location: "Santorini",
+    country: "Greece",
+  },
+
+  {
+    title: "Warm Desert Glamping Tent",
+    description:
+      "A luxury desert glamping experience with star-filled night skies and modern comforts.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1597848212624-a19eb35e7f06?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 900,
+    location: "Sahara Desert",
+    country: "Morocco",
+  },
+
+  {
+    title: "Alpine Snow Chalet",
+    description:
+      "Cozy alpine chalet with fireplace, perfect for ski lovers and winter retreats.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1542317854-8d5d2e67c57e?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2800,
+    location: "Zermatt",
+    country: "Switzerland",
+  },
+
+  {
+    title: "Luxury Waterfront Penthouse",
+    description:
+      "Experience modern luxury in this sleek waterfront penthouse with city skyline views.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 4500,
+    location: "Dubai Marina",
+    country: "United Arab Emirates",
+  },
+
+  {
+    title: "Romantic Cottage by the River",
+    description:
+      "A tranquil riverside cottage ideal for couples seeking peace and scenic landscapes.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 1300,
+    location: "Cambridge",
+    country: "United Kingdom",
+  },
+
+  {
+    title: "Jungle Tree Resort",
+    description:
+      "Stay high above the jungle in a luxury tree resort complete with private balcony views.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 1600,
+    location: "Ubud",
+    country: "Indonesia",
+  },
+
+  {
+    title: "Stone Cottage in the Hills",
+    description:
+      "Beautiful stone-built cottage surrounded by rolling hills and nature trails.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 1100,
+    location: "Wales",
+    country: "United Kingdom",
+  },
+
+  {
+    title: "Seaside Cabin with Sunset View",
+    description:
+      "Enjoy magical sunsets from this wooden cabin located right on the shoreline.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 1750,
+    location: "Cape Town",
+    country: "South Africa",
+  },
+
+  {
+    title: "Floating Bungalow Retreat",
+    description:
+      "Relax in a floating bungalow with calm waters, paddle boats, and sunset views.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1502673530728-f79b4cab31b1?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2600,
+    location: "Krabi",
+    country: "Thailand",
+  },
   {
     title: "Cozy Beachfront Cottage",
     description:
@@ -286,67 +415,135 @@ const sampleListings = [
     price: 1600,
     location: "Charleston",
     country: "United States",
+  },{
+  title: "Tropical Beachfront Cabana",
+  description:
+    "A private beachfront cabana surrounded by palm trees, offering direct ocean access and stunning sunrise views.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1522706604294-ff976a52d2a6?auto=format&fit=crop&w=800&q=60",
   },
-  {
-    title: "Modern Apartment in Tokyo",
-    description:
-      "Explore the vibrant city of Tokyo from this modern and centrally located apartment.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1480796927426-f609979314bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 2000,
-    location: "Tokyo",
-    country: "Japan",
+  price: 1500,
+  location: "Boracay",
+  country: "Philippines",
+},
+
+{
+  title: "Glass Igloo Under the Stars",
+  description:
+    "Experience a magical night sky view in this warm glass igloo surrounded by snow and wilderness.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1543340713-8a3f2d6b32f9?auto=format&fit=crop&w=800&q=60",
   },
-  {
-    title: "Lakefront Cabin in New Hampshire",
-    description:
-      "Spend your days by the lake in this cozy cabin in the scenic White Mountains of New Hampshire.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1578645510447-e20b4311e3ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGNhbXBpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1200,
-    location: "New Hampshire",
-    country: "United States",
+  price: 4200,
+  location: "Lapland",
+  country: "Finland",
+},
+
+{
+  title: "Rainforest Eco Lodge",
+  description:
+    "A sustainable eco-lodge in the heart of a rainforest, perfect for wildlife lovers and nature enthusiasts.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=60",
   },
-  {
-    title: "Luxury Villa in the Maldives",
-    description:
-      "Indulge in luxury in this overwater villa in the Maldives with stunning views of the Indian Ocean.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFrZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 6000,
-    location: "Maldives",
-    country: "Maldives",
+  price: 1700,
+  location: "Amazon Rainforest",
+  country: "Brazil",
+},
+
+{
+  title: "Luxury Cave Suite",
+  description:
+    "A unique cave room carved into the mountainside with modern interiors and panoramic sunset views.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1505691723518-36a5ac3be353?auto=format&fit=crop&w=800&q=60",
   },
-  {
-    title: "Ski Chalet in Aspen",
-    description:
-      "Hit the slopes in style with this luxurious ski chalet in the world-famous Aspen ski resort.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGxha2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 4000,
-    location: "Aspen",
-    country: "United States",
+  price: 2300,
+  location: "Cappadocia",
+  country: "Turkey",
+},
+
+{
+  title: "Sunny Vineyard Cottage",
+  description:
+    "A cozy cottage surrounded by vineyards, offering wine tasting experiences and beautiful rolling hills.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1466096115517-0c5d31a1777a?auto=format&fit=crop&w=800&q=60",
   },
-  {
-    title: "Secluded Beach House in Costa Rica",
-    description:
-      "Escape to a secluded beach house on the Pacific coast of Costa Rica. Surf, relax, and unwind.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBob3VzZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1800,
-    location: "Costa Rica",
-    country: "Costa Rica",
+  price: 1300,
+  location: "Napa Valley",
+  country: "United States",
+},
+
+{
+  title: "Private Island Water Villa",
+  description:
+    "A luxurious overwater villa on a private island with direct lagoon access and world-class amenities.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1505731132164-cca7e6caffce?auto=format&fit=crop&w=800&q=60",
   },
+  price: 6500,
+  location: "Maafushi",
+  country: "Maldives",
+},
+
+{
+  title: "Stylish Urban Loft",
+  description:
+    "A trendy loft apartment in the heart of the city with high ceilings, modern design, and nightlife nearby.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=60",
+  },
+  price: 2000,
+  location: "Berlin",
+  country: "Germany",
+},
+
+{
+  title: "Traditional Japanese Ryokan",
+  description:
+    "A peaceful stay in a traditional ryokan offering tatami rooms, hot springs, and authentic tea ceremonies.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1519821172141-b5d8b1e4f32d?auto=format&fit=crop&w=800&q=60",
+  },
+  price: 2500,
+  location: "Kyoto",
+  country: "Japan",
+},
+
+{
+  title: "Arctic Mountain Cabin",
+  description:
+    "A warm wooden cabin in a snowy arctic landscape, perfect for watching northern lights and stargazing.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=60",
+  },
+  price: 1900,
+  location: "Tromsø",
+  country: "Norway",
+},
+
+{
+  title: "Sunset Cliff Bungalow",
+  description:
+    "A charming cliffside bungalow with uninterrupted views of the ocean and vibrant orange sunsets.",
+  image: {
+    filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1501559104053-94f8b41e1851?auto=format&fit=crop&w=800&q=60",
+  },
+  price: 2200,
+  location: "Lombok",
+  country: "Indonesia",
+}
 ];
 
 module.exports = { data: sampleListings };
